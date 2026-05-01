@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    min-height: 100vh;
+    font-family: 'Orbitron', monospace;
+    color: #00ff41;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    image-rendering: optimize-contrast;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+        radial-gradient(1px 1px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(2px 2px at 130px 80px, rgba(255, 255, 255, 0.6), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: twinkle 3s infinite;
+    z-index: -1;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+#aliens-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 800px;
+    height: 600px;
+    transform: translate(0, 0);
+    will-change: transform;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 1;
+}
+
+.game-header {
+    text-align: center;
+}
+
+.game-title {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #00ff41;
+    text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41;
+    margin-bottom: 10px;
+    letter-spacing: 4px;
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41;
+    }
+
+    to {
+        text-shadow: 0 0 20px #00ff41, 0 0 30px #00ff41, 0 0 40px #00ff41;
+    }
+}
+
+.game-stats {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-display,
+.lives-display {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid #00ff41;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+#score {
+    color: #00ff41;
+    text-shadow: 0 0 10px #00ff41;
+}
+
+#hearts-container {
+    display: flex;
+    gap: 5px;
+}
+
+.heart {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.heart::before {
+    content: '♥';
+    font-size: 20px;
+    color: #ff0040;
+    text-shadow: 0 0 10px #ff0040;
+    position: absolute;
+    top: -2px;
+    left: 0;
+}
+
+.heart.empty::before {
+    color: #666;
+    text-shadow: none;
+}
+
+.pause-btn {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ff41;
+    color: #00ff41;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pause-btn:hover {
+    background: rgba(0, 255, 65, 0.1);
+    box-shadow: 0 0 25px rgba(0, 255, 65, 0.5);
+    transform: scale(1.05);
+}
+
+.pause-btn:active {
+    transform: scale(0.95);
+}
+
+.game-controls {
+    margin-bottom: 10px;
+}
+
+.game-area {
+    width: 800px;
+    height: 600px;
+    border: 2px solid #00ff41;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3), inset 0 0 20px rgba(0, 255, 65, 0.1);
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.player {
+    width: 40px;
+    height: 20px;
+    background: linear-gradient(45deg, #00ff41, #00cc33);
+    border-radius: 50% 50% 0 0;
+    position: absolute;
+    bottom: 30px;
+    left: 380px;
+}
+
+.player::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.alien {
+    width: 30px;
+    height: 20px;
+    background: linear-gradient(45deg, #ff0080, #8000ff);
+    border-radius: 3px;
+    position: absolute;
+}
+
+.alien::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent);
+    border-radius: 2px;
+}
+
+.laser,
+.alien-laser {
+    width: 4px;
+    height: 15px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.laser {
+    background: linear-gradient(0deg, #ffff00, #ff8800);
+}
+
+.alien-laser {
+    background: linear-gradient(0deg, #ff4444, #ff0000);
+}
+
+.explosion {
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #ff4444, #ff0000, #cc0000);
+    border-radius: 50%;
+    position: absolute;
+    animation: explode 0.3s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.invulnerable {
+    animation: flash 0.1s infinite;
+}
+
+@keyframes flash {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0.3;
+    }
+}
+
+.controls {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+.controls p {
+    color: #cccccc;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin: 0;
+    text-align: center;
+    animation: fadeInOut 3s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.game-over,
+.pause-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    width: 450px;
+    max-height: 80%;
+    max-width: 80%;
+}
+
+.game-over {
+    border: 3px solid #00ff08;
+    box-shadow: 0 0 30px #00ff08;
+}
+
+.pause-screen {
+    border: 3px solid #00ff41;
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.5);
+}
+
+.game-over h2,
+.pause-screen h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+.pause-screen h2 {
+    color: #00ff41;
+    text-shadow: 0 0 20px #00ff41;
+}
+
+.game-over h2 {
+    color: #00ff08;
+}
+
+.game-over p,
+.pause-screen p {
+    color: #cccccc;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .game-area {
+        width: 600px;
+        height: 450px;
+    }
+
+    .game-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .game-area {
+        width: 400px;
+        height: 300px;
+    }
+
+    .game-title {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    .score-display {
+        font-size: 1rem;
+    }
+}
+
+.big-text {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.small-text {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+.pause-title {
+    font-size: 3rem;
+    color: lime;
+    margin-bottom: 10px;
+}
+
+.pause-subtitle {
+    font-size: 1.5rem;
+    color: lime;
+    margin-bottom: 20px;
+}
+
+.pause-instructions {
+    font-size: 1rem;
+    color: #aaa;
+}
+
+.start-btn {
+    display: block;
+    margin: 0 auto 20px auto;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ff41;
+    color: #00ff41;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.homepage-instructions {
+    text-align: center;
+    color: #ccc;
+    font-size: 1.5rem;
+}

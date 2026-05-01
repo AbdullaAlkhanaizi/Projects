@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Comment</title>
+    <link rel="stylesheet" href="../style/newDiscussion.css"> <!-- Same CSS as Discussion -->
+</head>
+
+<body>
+
+<main class="discussion-page">
+    <div class="discussion-container">
+        <h2>Write a Comment</h2>
+
+        <form method="POST" action="/comment" class="discussion-form">
+            <input type="hidden" name="post_id" value="{{.PostID}}">
+
+            <textarea name="content" placeholder="Write your comment here..." rows="5" required></textarea>
+
+            <button type="submit" class="submit-button">Post Comment</button>
+        </form>
+    </div>
+</main>
+
+</body>
+
+</html>

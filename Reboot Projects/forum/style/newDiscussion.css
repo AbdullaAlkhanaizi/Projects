@@ -1,0 +1,159 @@
+:root {
+    --bg-dark: #12141e;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --accent: #00bcd4;
+    --btn-primary: #6c63ff;
+    --btn-hover: #5340b1;
+    --text-color: #ffffff;
+    --text-muted: #aaaaaa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at center, #1d2031 0%, #12141e 100%);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+main.discussion-page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.discussion-container {
+    background: var(--glass-bg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.discussion-container h2 {
+    margin-bottom: 25px;
+    font-size: 2.4rem;
+    color: white;
+}
+
+form.discussion-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]::placeholder,
+textarea::placeholder {
+    color: var(--text-muted);
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid var(--accent);
+}
+
+
+.category-label {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.category-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+}
+
+.category-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    color: white;
+}
+.category-options input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background-color: transparent;
+    position: relative;
+    top: 3px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.2s ease, border 0.2s ease;
+}
+
+/* Checked radio effect */
+.category-options input[type="radio"]:checked {
+    background-color: var(--accent);
+    box-shadow: 0 0 0 2px #ffffff;
+}
+
+/* Category label next to radio */
+.category-options label {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+/* Submit Button */
+.submit-button {
+    background-color: var(--btn-primary);
+    color: var(--text-color);
+    padding: 14px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: var(--btn-hover);
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .discussion-container {
+        margin: 20px;
+    }
+}

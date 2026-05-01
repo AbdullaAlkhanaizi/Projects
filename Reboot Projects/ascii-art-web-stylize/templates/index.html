@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/index.css">
+        <link rel="icon" href="../static/favicon.ico" sizes="16x16" type="image/ico">
+        <title>Ascii-Art-Web</title>
+
+    </head>
+    <body>
+        <!--class for middle div-->
+        <div class = "div1">
+         <form action="/ascii-art" method="POST">
+
+            <!--select for banner type / font type-->
+             <label for="Banner type">Banner type :</label>
+            <select name="Banner type">
+                <option value="Standard">Standard</option>
+                <option value="Shadow">Shadow</option>
+                <option value="Thinkertoy">tinkertoy</option>
+             </select>
+               <br>
+               <!--text area for text input-->
+            <textarea name="Textarea"  required placeholder="Write something!"></textarea>
+               <br>
+               <!--submit button to send input to handler-->
+                <input type="submit" name="subfunc" value="submit to function">
+             </form>
+
+             <form action="/" method="GET">
+                <!--submit button to return to homepage-->
+                <input type="submit" name="subhome" value="Go to Home Page">
+            </form>
+
+            </div>
+            <!--class for text output-->
+            <div class="div2">
+                 <pre>{{.}}</pre>
+            </div>
+            <!--class for title-->
+            <div class="Ascii-Art-Web">ASCII ART Web</div>
+
+    </body>
+</html>

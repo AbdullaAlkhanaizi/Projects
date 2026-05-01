@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: rgba(238,223,198,255);
+    color: #5c5e43;
+    line-height: 1.6;
+}
+
+.header {
+    background-color: #d8cab1;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+   
+}
+
+.header .name {
+    font-size: 3em;
+    letter-spacing: 0.1em;
+    color: rgba(238,223,198,255);
+    font-family: 'Georgia', serif;
+    
+}
+
+.header h1 {
+    margin: 0;
+    color: #5c5e43 ;
+    display: inline-block;
+    font-size: 3em;
+    letter-spacing: 0.1em;
+   
+    font-family: 'Georgia', serif;
+
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.box {
+    background-color:rgb(249,239,218);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.box:hover {
+    transform: scale(1.05);
+}
+
+.box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.detail {
+    padding: 15px;
+}
+
+.detail h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #5c5e43;
+    font-weight: bold;
+}
+
+.detail p {
+    font-size: 0.5em;
+    font-weight: lighter;
+}
+.bold-p{
+    font-weight: bold;
+}
+
+.morebutton{
+    background-color: #5c5e43;
+    font-size: 0.5em;
+    padding: 3px 4px; 
+    font-weight: bold;      
+    border: none;                
+    border-radius: 4px; 
+    color: white;         
+    cursor: pointer;             
+    transition: background-color 0.3s ease;
+}
+.backbutton{
+    background-color: #5c5e43;
+    font-size: 0.7em;
+    padding: 10px 12px;
+    font-weight: bold;         
+    border: none;                
+    border-radius: 4px; 
+    color: white;         
+    cursor: pointer;             
+    transition: background-color 0.3s ease;
+
+}
+
+
+
+@media (max-width: 600px) {
+    .flex-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .box {
+        margin: 10px auto;
+        width: 70%;
+    }
+
+    .header .name {
+        font-size: 2.5em;
+    }
+}
+
+.moreDCon{
+    padding: 30px;
+    background-color:rgb(249,239,218);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    width: 70%;
+
+}
+.movimg{
+    display: block;
+   
+    border-radius: 10px;
+}
+.musicTit{
+    margin: 2rem 0;
+}
+a {
+    text-decoration: none;
+}
