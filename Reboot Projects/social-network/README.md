@@ -1,5 +1,8 @@
 # Project : social-network
 
+# authers  
+abdusaeed , aalasfoo , hsaeed
+
 #### This project is about building a complete social network platform with user authentication, posts, comments, and real-time features.
 
 # how to run
