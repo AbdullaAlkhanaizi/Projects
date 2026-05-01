@@ -33,7 +33,7 @@ func main() {
 		fmt.Print("(Only space printed)")
 		os.Exit(0)
 	}
-	data, err := os.ReadFile("../standard.txt")
+	data, err := os.ReadFile("./standard.txt")
 	//incase of error
 	if err != nil {
 		fmt.Println(err)
