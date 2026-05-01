@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-Time Forum</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<header>
+    <h1 id="titleHome" style="cursor:pointer">Real-Time-Forum</h1>
+    <nav>
+        <span id="connection-status" class="connection-status connecting">Connecting...</span>
+        <button class="btn-primary" id="btnLogin">Login</button>
+        <button class="btn-primary" id="btnLogout" hidden>Logout</button>
+    </nav>
+</header>
+
+<main id="app"></main>
+
+
+<script src="../JS/util.js" defer></script>
+<script src="../JS/auth.js" defer></script>
+<script src="../JS/feed.js" defer></script>
+<script src="../JS/comments.js" defer></script>
+<script src="../JS/render.js" defer></script>
+<script src="../JS/routing.js" defer></script>
+<script src="../JS/web.js" defer></script>
+<script src="../JS/app.js" defer></script>
+
+
+</html>

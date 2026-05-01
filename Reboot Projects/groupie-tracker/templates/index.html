@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/style.css">
+  <title>Band List</title>
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="name">SOL</h1>
+    <h1>MUSIC</h1>
+  </header>
+
+  <div class="flex-container">
+    {{range .}}
+
+    <div class="box">
+      <img src="{{.Image}}" alt="{{.Name}}">
+
+      <div class="detail">
+
+        <h3> {{.Name}}<h3>
+            <p> <span class="bold-p"> CreationDate : </span> {{.CreationDate}}</p>
+            <p> <span class="bold-p"> First Album : </span> {{.FirstAlbum}}</p>
+            <form action="/detial" method="GET">
+              <input type="hidden" name="id" value="{{.ID}}">
+              <a href="/detail/{{.ID}}" class= "morebutton">More Details</a>
+          </form>
+      </div>
+    
+
+    </div>
+    {{end}}
+
+  </div>
+
+
+
+
+</body>
+
+</html>
+

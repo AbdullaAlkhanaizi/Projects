@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Post</title>
+    <link rel="stylesheet" href="../style/newDiscussion.css">
+</head>
+
+<body>
+    <main class="discussion-page">
+        <div class="discussion-container">
+            <h2>Create a New Post</h2>
+
+            <form method="POST" action="/NewDisscution" class="discussion-form">
+                <input type="text" name="title" placeholder="Post Title..." required>
+            
+                <textarea name="content" placeholder="Write your content here..." rows="6" required></textarea>
+            
+                <label class="category-label">Choose a Category:</label>
+                <div class="category-options">
+                    {{range .}}
+                    <label class="category-checkbox">
+                        <input type="checkbox" name="category[]" value="{{.ID}}">
+                        {{.Name}}
+                    </label>
+                    {{end}}
+                </div>
+            
+                <button type="submit" class="submit-button">Post Discussion</button>
+            </form>
+            
+        </div>
+    </main>
+</body>
+
+
+</html>

@@ -1,0 +1,120 @@
+:root {
+    --bg-dark: #1d1f2b;
+    --bg-light: #2b2e41;
+    --accent: #00bcd4;
+    --btn-primary: #6c63ff;
+    --btn-primary-hover: #5340b1;
+    --text-color: #ffffff;
+    --text-muted: #aaaaaa;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at center, #1d2031 0%, #12141e 100%);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+}
+input{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Form container */
+.form-container {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px); /* Glass effect */
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    margin: 10px;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* Form inside */
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-container input,
+.form-container select,
+.form-container button {
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+}
+
+.form-container input,
+.form-container select {
+    background-color: #ffffff;
+    color: #333333;
+    transition: all 0.3s;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+    border: 2px solid var(--accent);
+    background-color: #f0f0f0;
+}
+
+/* Main login button */
+.form-container button {
+    background-color: var(--btn-primary);
+    color: var(--text-color);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.form-container button:hover {
+    background-color: var(--btn-primary-hover);
+    transform: scale(1.05);
+}
+
+.button-container2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.form-button {
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px; /* more rounded */
+    background-color: var(--btn-primary);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.form-button:hover {
+    background-color: var(--btn-primary-hover);
+    transform: scale(1.05);
+}
+
+a {
+    text-decoration: none;
+}
